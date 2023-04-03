@@ -1,0 +1,31 @@
+/* Common Styles */
+/* use * to access all the styles */
+*{
+  margin: 0;
+  padding: 0;
+  /* box-sizing property-sets now the total width and height of an element is calculated-it allows you to include the padding and border in an elements total width and height. If you set box-sizing: border-box; on an element, padding and border are included in the width and height. Both divs are the same size now. */
+  box-sizing: border-box;
+  /* the outline property in CSS draws a line around the outside of an element. its similar to border except that it always goes around all the sides, you cant specify particular sides. Its not part of the box model, so it wont affect the position of the element or adjacent elements(nice for debugging). */
+  outline: none;
+  /* text-decoration: none removes the default underline under link elements */
+  text-decoration: none;
+  /* list-style-type removes the default bullets from list elements */
+  list-style-type: none;  
+}
+
+/* using rem as the measurement unit...1 rem is 16 pixels by default because the font size of the element is equal to 16 pixels...to convert one rem into 10 pixels the default size of the element has to be decreased...setting it to 62.5 all the elements are smaller and one rem is equal to 10 pixels */
+html{
+    font-size: 62.5%;
+}
+
+/* End Of Common Styles */
+
+/* section 1 */
+.section-1{
+    width: 100%;
+    height: 100vh;
+    background: url(images/dark-bg.jpeg) no-repeat;
+    background-size: cover;
+
+}
+/* end of section 1 */
