@@ -21,6 +21,8 @@ html{
 /* End Of Common Styles */
 
 /* section 1 */
+
+/* in order to position the absolute div according to its parent element, the section is set to position relative   */
 .section-1{
     width: 100%;
     height: 100vh;
@@ -28,7 +30,7 @@ html{
     background-size: cover;
     position: relative;
 }
-
+/* the banner class which is on the div inside the section is set to absolute inside the section */
 .banner{
   width: 100%;
   position: absolute;
@@ -41,6 +43,10 @@ html{
 .banner-heading{
   margin-bottom: 4rem;
   height: 20rem;
+  /* We will move the headings closer to the user with the translate the function in the 3D environment,and also we will hide them.This will be the default state of the heading after that will display the headings in order with some intervals. So first of all, let's create a 3D environment for that. We have to use one of the properties called Perspective*/
+  perspective: 50rem;
+  /* when letter spacing was added in the .banner-heading span section, the scrollbar appeared so use overflow: hidden to fix */
+  overflow: hidden;
 }
 
 .banner-heading span {
@@ -50,8 +56,78 @@ html{
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0.3rem 0.3rem 0.6rem rgba(0,0,0,0.5);
+  /* put all headings on top of each other--they are all in a span so making the position absolute will place them all on top of each other */
+  position: absolute;
+  /* need to center all the headings so flexbox will do that */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* after setting up the 3D environment using perspective above,  let's move the headings and also hide them using opacity: 0. Let's use transport with translate z function. */
+  transform: translateZ(8rem);
+  opacity: 0;
+  /*And besides that, in order to make the effect look nicer, I'm going to increase the space between the letters. Let's set that spacing to three rem. */
+  letter-spacing: 3rem;
 }
 
+/* Let's start with the first Heading. It's a scientific animation followed by the name of the animation, which is animateeading, then we need the duration 12 seconds, then the delay time is going to be three seconds for the first heading. And also we need to run the animation infinitely. */
+.heading-1{
+  animation: animateHeading 12s 3s infinite;
+}
+.heading-2{
+  animation: animateHeading 12s 6s infinite;
+}
+.heading-3{
+  animation: animateHeading 12s 9s infinite;
+}
+.heading-4{
+  animation: animateHeading 12s 12s infinite;
+}
+/*Now it's time to create the CSS animations for the heading tags above and for that I'm going to use CSFs keyframes we need at sign,followed by the keyword keyframes.And then we have to set the name of the keyframes.Let's call it animate heading.  So we will add this cycle to all the headings, but with different the delay Times, therefore they will display and hide in order again. All the headings will perform the cycle. I mean, hiding, then displaying and then again hiding what they will do that with different delay times.*/
+@keyframes animateHeading {
+  /*At the first step, from zero percent to three percent, the headings will be hidden, they will have the exact same properties that we assign to them by default.  */
+  0%{
+    transform: translateZ(8rem);
+    opacity: 0;
+    letter-spacing: 3rem;
+  }
+  /* So at three percent, we need transform, translateZ with zero. Then we have to make the element visible, let's add capacity to one and also decrease lateral spacing,make it one point five rem. */
+  3%{
+    transform: translateZ(0);
+    opacity: 1;
+    letter-spacing: 1.5rem;
+  }
+  /* After that, from four percent to twenty five percent, the heading will be visible and then from twenty five percent to 28 percent during this three percent, it will hide again. So we need year twenty five percent. */
+  25%{
+    transform: translateZ(0);
+    opacity: 1;
+    letter-spacing: 1.5rem;
+  }
+  /* and then from twenty five percent to 28 percent during this three percent, it will hide again. for the twenty eight percent. We need to make here some changes, we need to translate the function with 8rem than opacity zero and lateral spacing three rem.*/
+  28%{
+    transform: translateZ(8rem);
+    opacity: 0;
+    letter-spacing: 3rem;
+  }
+  /* And finally, from 28 percent to 100 percent, the heading will be hidden, so at 100 percent. We need to transform, translate the atrium, opacity zero, and that's spacing three rem. */
+  100%{
+    transform: translateZ(8rem);
+    opacity: 0;
+    letter-spacing: 3rem;
+  }
+}
+
+/* the paragraph is hidden and now we have to create the CCWs keyframes. Let's call it fate animation, actually, but we'll use this animation for both elements in the paragraph and the bottom as well. So overall, we'll have two different steps. The starting point, zero percent and the ending point 100 percent. The only thing that we need to do is to make the element hidden at zero percent and make it visible at 100 percent.*/
+
+@keyframes fadeAnimation {
+  0%{
+    opacity: 0;
+    visibility: hidden;
+  }
+  100%{
+    opacity: 1;
+    visibility: visible;
+  }
+}
 .banner-paragraph{
   font-size: 4rem;
   font-weight: 400;
@@ -59,22 +135,69 @@ html{
   color: #fff;
   background-color: rgba(0,0,0,0.6);
   width: 30%;
-  margin: 0 auto 4rem auto;
+  /* use margin to create space at the bottom and center the paragraph*/
+  margin: 0 auto 6rem auto;
+  /* create space inside the top and bottom of the paragraph */
   padding: 1rem 0;
   box-shadow: 1rem 1rem 5rem rgba(0,0,0,0.5);
+  /* create animations for the paragraph-- First of all, hide the paragraph by default. set opacity zero.And visibility, hidden. */
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeAnimation 1s 1.5s forwards;
+}
+
+/* So once we hover over the bottom, then it will shine this shining effect. It will be created with a before pseudo element and will create these little white elements and we will move it on hover. */
+/* select button with a before pseudo element.First of all, let's define content, make it empty.Then I'm going to set within height both of them to 100 percent.As for the background, I'm going to use linear gradient function.So the direction of the transition of the callers will be from left to right.And I'm going to use three different callers, the first one is going to be transparent.Then we will have the white collar.And the third one is going to be, again, transparent. */
+.banner-btn::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  /* So right now, the element is not visible because we have to define the position, let's set position to absolute. Then in order to position it according to its parent elements, which is the button, we have to define the position of the button as relative. */
+  position: absolute;
+  /* And then use top position, make it zero. That's for the left property, I'm going to send it to minus 100 percent. */
+  top: 0;
+  left: -100%;
+  /* OK, so here we have the before psuedo elements, before we make it work, I'm going to skew it a little bit horizontally. So let's use transform. With the skewX function. And as the value, let's set it to 30 degrees. */
+  transform: skewX(-30deg);
+  /* move the before psuedo element to the right side on Hover, so let's select button with Hover.
+Followed by the before studio element.And then set left property to 100 percent.Besides that, we need to transition. with values left and point five seconds */
+  transition: left 0.5s;
+}
+/* move the before psuedo element to the right side on hover, so let's select button with Hover. Followed by the before psuedo element.And then set left property to 100 percent. */
+.banner-btn:hover::before{
+  left: 100%;
+  /* Besides that, we need to transition.We got left and point five seconds. */
+  transition: left 0.5s;
 }
 
 .banner-btn{
   width: 30rem;
   height: 6rem;
+  /* in linear gradient, the direction of the colors will be to the right */
   background: linear-gradient(to right, #9b0e0e, #7a1010);
   color: #fff;
   font-size: 2rem;
   text-transform: uppercase;
   border-radius: 3rem;
   border: 0.1rem solid #800505;
-  box-shadow:  (1rem 2rem 3rem rgba(0,0,0,0.5);
+  box-shadow:  (1rem 2rem 3rem rgba(0,0,0,0.5));
   text-shadow: .6rem .3rem .2rem rgba(0,0,0,0.4);
   cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeAnimation 1s 2s forwards;
+  /* Then in order to position it according to its parent elements, which is the bottom, we have to define the position of the bottom as relative. */
+  position: relative;
+  /* The only thing that we need to do is to hide this shine element by default.For that, let's use overflow hidden. */
+  overflow: hidden;
 }
+
+
+
+
+
+
+
+
 /* end of section 1 */
