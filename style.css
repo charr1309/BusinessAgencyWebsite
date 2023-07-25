@@ -1,9 +1,10 @@
 /* Common Styles */
 /* use * to access all the styles */
 *{
-  margin: 0;
+  /*get rid of default margin and padding from every element  */
+  margin: 0; 
   padding: 0;
-  /* box-sizing property-sets now the total width and height of an element is calculated-it allows you to include the padding and border in an elements total width and height. If you set box-sizing: border-box; on an element, padding and border are included in the width and height. Both divs are the same size now. */
+  /* box-sizing property-sets how the total width and height of an element is calculated-it allows you to include the padding and border in an elements total width and height. If you set box-sizing: border-box; on an element, padding and border are included in the width and height. Both divs are the same size now. */
   box-sizing: border-box;
   /* the outline property in CSS draws a line around the outside of an element. its similar to border except that it always goes around all the sides, you cant specify particular sides. Its not part of the box model, so it wont affect the position of the element or adjacent elements(nice for debugging). */
   outline: none;
@@ -19,10 +20,94 @@ html{
 }
 
 /* End Of Common Styles */
+/* Navbar */
+.navbar{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  position: fixed;
+  /* the top property in CSS is used to describe the top position of an element. The top property varies with the position of the element. If the position value is fixed or absolute, the element adjusts its top edge with respect to the top edge of its parent element or the block that holds it. The top property affects the verticle position of a positioned element. It has no effect on non-positioned elements. */
+  top: 0;
+  /* at this point the navbar is currently hidden because it is behind the banner. Setting the z-index to 10 makes it visible. now it crosses the top of the screen with the semi transparent black color assigned in the background color above in this section */
+  z-index: 10;
+  /* create some space around the text by adding 3rem on all 4 sides */
+  padding: 3rem;
+}
+.logo{
+  position: absolute;
+  top: 1.5rem;
+  left: 4rem;
+}
+.logo a{
+  font-family: 'MADE Soulmaze',sans-serif;
+  font-size: 2.5rem;
+  color: #eee;
+  letter-spacing: 0.1rem;
+}
+.logo span{
+  font-family: 'Made Soulmaze', sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #9e0e09;
+  letter-spacing: 0.1rem;
+}
+.nav-list{
+ position: absolute;
+ top: 25%; /*move the elements down 25% */
+ left: 50%;/*move the elements to the right 50%*/
+ /* tranform: translateX(-50%) moves the element backwards by half of its width, which results in the centers of the element and the container to overlap with one another. This centers the element */
+ transform: translateX(-50%);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.nav-link{
+  font-family: 'MADE Soulmaze',sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.3rem;
+  color: white;
+  margin: 2rem 0;/*set margin to 2rem on top and bottom and 0 on the left and right sides*/
+  transition: color .4s;
+}
+.nav-link:hover{
+  color: #9e0e09;
+}
+/* End of Navbar */
+
+/* Menu */
+.menu{
+  width: 4rem;
+  height: 4rem;
+  /* background-color: #eee; */
+  position: fixed;
+  top: 2rem;
+  /* when position is set to absolute or fixed, the right property specifies the distance between the elements outer margin of the right edge of the inner border of the right edge of the containing block. When position is set to relative, the right property specifies the distance the elements right edge is moved to the left from its normal position. When position is set to sticky, the right property is used to compute the sticky-contraint rectangle. When position is set to static, the right property has no effect */
+  right: 4rem;
+  z-index: 100;
+  /* all the lines are on top of each other so use flexbox to separte them the lines are child elements of menu div so the changes need to be in the menu section */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+.line{
+  width: 100%;
+  height: 0.2rem;
+  background-color: #eee;
+}
+.line-1{
+  width: 50%;
+}
+.line-3{
+  width: 50%;
+  /* margin-left set to auto places the line to the right side of the container. The property sets the width of the left margin of the element (the line) inside the container. setting it to auto is what moves it to the right. If margin-left and margin-right are set to auto, it centers the element in the container. This works if the position of the parent element is set to fixed */
+  margin-left: auto; 
+}
+/* End of Menu */
 
 /* section 1 */
 
-/* in order to position the absolute div according to its parent element, the section is set to position relative   */
+/* in order to position the absolute div (banner) below according to its parent element(section-1), the section is set to position relative   */
 .section-1{
     width: 100%;
     height: 100vh;
@@ -36,7 +121,9 @@ html{
   position: absolute;
   top: 20%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%);/*the translateX() function repositions an element horizontally on the 2D plane. Its result is a transform-function datatype. */
+
+  /* the transform-function data type is specified using on of the tramformation functions. Each function applies a geometric operation in either 2D or 3D */
   text-align: center;
 }
 
@@ -116,7 +203,7 @@ html{
   }
 }
 
-/* the paragraph is hidden and now we have to create the CCWs keyframes. Let's call it fate animation, actually, but we'll use this animation for both elements in the paragraph and the bottom as well. So overall, we'll have two different steps. The starting point, zero percent and the ending point 100 percent. The only thing that we need to do is to make the element hidden at zero percent and make it visible at 100 percent.*/
+/* the paragraph is hidden and now we have to create the CCWs keyframes. Let's call it fade animation, actually, but we'll use this animation for both elements in the paragraph and the bottom as well. So overall, we'll have two different steps. The starting point, zero percent and the ending point 100 percent. The only thing that we need to do is to make the element hidden at zero percent and make it visible at 100 percent.*/
 
 @keyframes fadeAnimation {
   0%{
@@ -143,19 +230,22 @@ html{
   /* create animations for the paragraph-- First of all, hide the paragraph by default. set opacity zero.And visibility, hidden. */
   opacity: 0;
   visibility: hidden;
+  /* once the animation starts, the paragraph will hide again. To stop this from happening and keep the paragraph visible, you need forwards--the target will retain the computed values set by the last keyframe encountered during excecution */
   animation: fadeAnimation 1s 1.5s forwards;
 }
 
-/* So once we hover over the bottom, then it will shine this shining effect. It will be created with a before pseudo element and will create these little white elements and we will move it on hover. */
-/* select button with a before pseudo element.First of all, let's define content, make it empty.Then I'm going to set within height both of them to 100 percent.As for the background, I'm going to use linear gradient function.So the direction of the transition of the callers will be from left to right.And I'm going to use three different callers, the first one is going to be transparent.Then we will have the white collar.And the third one is going to be, again, transparent. */
+/* So once we hover over the botton, then it will shine this shining effect. It will be created with a before pseudo element and will create these little white elements and we will move it on hover. */
+/* select button with a before pseudo element.First of all, let's define content, make it empty.Then I'm going to set width and height on both of them to 100 percent.As for the background, I'm going to use linear gradient function.So the direction of the transition of the colors will be from left to right.And I'm going to use three different colors, the first one is going to be transparent.Then we will have the white color.And the third one is going to be, again, transparent. */
 .banner-btn::before{
+  /* psuedo elemnts are tags you will see alot in css...this allows you to add elements into your code strictly from css and you will add it either before or after. Psuedo elements require you to use the content attribute to actually set what the content inside of this psuedo element is going to be. if there is no content you set it to an empty string */
   content: "";
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, transparent, #fff, transparent);
+  /* the direction of the transition will be from left to right--thats the first argument in the linear gradient arguments below */
+  background: linear-gradient(to right, transparent, #fff, yellow, transparent);
   /* So right now, the element is not visible because we have to define the position, let's set position to absolute. Then in order to position it according to its parent elements, which is the button, we have to define the position of the button as relative. */
   position: absolute;
-  /* And then use top position, make it zero. That's for the left property, I'm going to send it to minus 100 percent. */
+  /* And then use top position, make it zero. AS for the left property, I'm going to send it to minus 100 percent. */
   top: 0;
   left: -100%;
   /* OK, so here we have the before psuedo elements, before we make it work, I'm going to skew it a little bit horizontally. So let's use transform. With the skewX function. And as the value, let's set it to 30 degrees. */
@@ -187,9 +277,9 @@ Followed by the before studio element.And then set left property to 100 percent.
   opacity: 0;
   visibility: hidden;
   animation: fadeAnimation 1s 2s forwards;
-  /* Then in order to position it according to its parent elements, which is the bottom, we have to define the position of the bottom as relative. */
+  /* Then in order to position it according to its parent elements, which is the botton, we have to define the position of the botton as relative. */
   position: relative;
-  /* The only thing that we need to do is to hide this shine element by default.For that, let's use overflow hidden. */
+  /* The only thing that we need to do is to hide this shine element by default.For that, let's use overflow hidden. So everything outside the button container is hidden*/
   overflow: hidden;
 }
 
