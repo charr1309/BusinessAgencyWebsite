@@ -43,6 +43,7 @@ html{
   top: 0;
 }
 } 
+/* selecting navbar with class change added from the scripts.js file. 'change' has a click event added to it and on click, the height of the navbar will change to take up 100 percent of the viewer height. to make the animation smooth, the transition is added to the navbar selector above */
 .navbar.change{
   height: 100vh;
 }
@@ -75,11 +76,14 @@ html{
  align-items: center;
  opacity: 0;
  visibility: hidden;
+ /* this transition makes the list of items smoothly hide when the menu icon is clicked to remove the items and shrink the navbar */
  transition: all 0.2s; 
 }
+/* unlike above with .navbar.change where there is no space between .navbar and .change, a space is needed between .change and .nav-list because nav-list is the child of the navbar. nav-list above is set by default to opacity 0 and hidded so that it can be animated to be visible using .change below since .change has the click event that executes the the code*/
 .change .nav-list{
   opacity: 1;
   visibility: visible;
+  /* When using transition: all, all properties that can transition will. 0.7s is the duration and 0.5 is the delay time */
   transition: all 0.7s 0.5s;
 }
 .nav-link{
@@ -115,6 +119,7 @@ html{
   width: 100%;
   height: 0.2rem;
   background-color: #eee;
+  /* the transition below makes the animation of the lines into the arrow smooth */
   transition: transform 0.3s;
 }
 .line-1{
@@ -122,6 +127,7 @@ html{
   
 }
 .change .line-1{
+  /* in order to move line-1 to the right side, set x direction to 100% as for the Y direction it is set to 1 rem. This will move line-1 on top of line-3. Use the rotate function to rotate line-1 by -35 degrees. the line will not be placed correctly since it rotates from its center by default. Changed the pivot to right using transform-origin to place the line in the right place*/
   transform: translate(100%, 1rem) rotate(-35deg);
   transform-origin: right;
 }
@@ -132,6 +138,7 @@ html{
   
 }
 .change .line-3{
+  /* line-3 is already on the right side so no need to translate X */
   transform: translateY(-1rem) rotate(35deg);
   transform-origin: right; 
 }
@@ -314,12 +321,109 @@ Followed by the before studio element.And then set left property to 100 percent.
   /* The only thing that we need to do is to hide this shine element by default.For that, let's use overflow hidden. So everything outside the button container is hidden*/
   overflow: hidden;
 }
-
-
-
-
-
-
-
-
 /* end of section 1 */
+
+/* Section 2 */
+.section-2{
+  width: 100%;
+  height: 100vh;
+  background-color: #222020;
+  display: flex;
+  align-items: center;
+  padding: 0 10rem;
+  position: relative;
+}
+.section-heading{
+  font-family: "Oswald",sans-serif;
+  font-size: 10rem;
+  font-weight: 300;
+  color: #ddd;
+  /* margin-right below puts some space between the heading and the line in the about us text--margins are used to create space around elements, outside of any defined borders */
+  margin-right: 4rem;
+}
+.section-heading-line{
+  width: 15rem;
+  height: 0.2rem;
+  background-color: #ddd;
+
+}
+.video-wrapper{
+  width: 100rem;
+  height: 50rem;
+  /* setting the wrapper as absolute and its parent section-2 as relative */
+  position: absolute;
+  top: 5rem;
+  right: 15rem;
+  /* off-setX off-setY blur-radius color (rgba with transparency level) */
+  box-shadow: 3rem 3rem 3rem rgba(0,0,0,0.7);
+}
+.video{
+  width: 100%;
+  height: 100%;
+  /* the object-fit CSS property sets how the content of a replaced element such as an <img> or <video> should be resized to fit its container. In this case, the video-wrapper */
+  object-fit: cover;
+  opacity: 0.3;
+}
+.controls{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+}
+.video-bar-wrapper{
+  width: 100%;
+  height: 0.7rem;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.video-bar{
+  height: 100%;
+  width: 20%;
+  background-color: #d30819;
+}
+.buttons{
+  padding: 2rem 1rem 1rem 1rem;
+}
+.buttons button{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.buttons i{
+  font-size: 2.8rem;
+  color: #fff;
+}
+.section-2-paragraph{
+  width: 100rem;
+  position: absolute;
+  bottom: 30rem;
+  right: 15rem;
+  font-size: 2rem;
+  color: #ddd;
+  border-top: 0.3rem double #aaa;
+  border-bottom: 0.3rem double #aaa;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  text-shadow: 1rem 1rem 2rem rgba(0,0,0,0.7);
+  line-height: 1.5;
+}
+.fa-quote-left{
+  align-self: flex-start;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+.fa-quote-right{
+  align-self: flex-end;
+  font-size: 5rem;
+
+}
+
+
+
+/* End of Section 2 */
