@@ -8,3 +8,36 @@ menu.addEventListener('click',()=>{
     menu.classList.toggle('change')
 })
 // End of Navbar
+
+// Section 2 Video
+const video = document.querySelector('.video')
+const btn = document.querySelector('.buttons i')
+const bar = document.querySelector('.video-bar')
+
+// using classList, you can add or remove a class without affecting any others the element may have. But if you assign className, it will wipe out any existing classes while adding the new one, or if you assign an empty string it will wipe out all of them. Assigning className can be a convenience for cases where you are certain no other classes will be used on the element but usually you would normally use the classList method exclusively
+const playPause = ()=>{
+    if(video.paused){
+        video.play()
+        btn.className = "far fa-pause-circle"
+        video.style.opacity = '.7'
+    }else{
+        video.pause()
+        btn.className = "far fa-play-circle"
+        video.style.opacity = '.3'
+    }
+
+}
+btn.addEventListener('click', ()=>{
+    playPause()
+})
+
+video.addEventListener('timeupdate', ()=>{
+    const barWidth = video.currentTime/video.duration
+    bar.style.width =  `${barWidth * 100}%`
+    if(video.ended){
+        btn.className = 'far fa-play-circle'
+        video.style.opacity = '.3' 
+
+    }
+})
+// End of Section 2 Video
