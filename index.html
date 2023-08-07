@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
     <!-- with rel="preconnect" you can tell the browser to do the DNS lookup and establish the connection ahead of time, while the browser is rendering the page contents. These will help the page to load more quickly -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,11 +25,11 @@
            </a> 
         </div>
         <div class="nav-list">
-            <a href="#" class="nav-link">Home</a>
-            <a href="#" class="nav-link">About</a>
-            <a href="#" class="nav-link">Pricing</a>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about-us" class="nav-link">About</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
             <a href="#" class="nav-link">Blog</a>
-            <a href="#" class="nav-link">Contact</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
     <!-- End of Navbar --> l
@@ -40,7 +42,7 @@
     <!-- End of Menu -->
     <div class="container">
         <!-- Section 1 -->
-        <section class="section-1">
+        <section class="section-1" id="home">
             <div class="banner">
                 <h1 class="banner-heading">
                     <span class="heading-1">Business Ideas</span>
@@ -57,7 +59,7 @@
         <!-- End of Section 1 -->
 
         <!-- Section 2 -->
-        <section class="section-2">
+        <section class="section-2" id="about-us">
         <h1 class="section-heading">About Us</h1>
         <div class="section-heading-line"></div>
         <div class="video-wrapper">
@@ -82,168 +84,199 @@
         <!-- End of Section 2 -->
 
         <!-- Section 3 -->
-        <section class="section-3">
+        <section class="section-3" id="pricing">
             <h1 class="section-heading">Pricing</h1>
             <div class="section-heading-line"></div>
-            <div class="pricing-cards-wrapper">
-                <div class="pricing-card">
-                    <div class="pricing-card-front">
-                        <h1 class="pricing-card-heading heading-free">FREE</h1>
-                        <h3 class="pricing-card-price">$0</h3>
-                        <ul class="pricing-card-list list-free">
-                            <li>
-                                <i class="fas fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-times">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-times">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-times">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-times">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                        </ul>
-                        <button class="pricing-card-btn btn-free">Choose Plan</button>
+            <div class="swiper-container">
+                <div class="pricing-cards-wrapper swiper-wrapper">
+                    <div class="pricing-card mySwiper swiper-slide">
+                        <div class="pricing-card-front">
+                            <h1 class="pricing-card-heading heading-free">FREE</h1>
+                            <h3 class="pricing-card-price">$0</h3>
+                            <ul class="pricing-card-list list-free">
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                            </ul>
+                            <button class="pricing-card-btn btn-free">Choose Plan</button>
+                        </div>
+                        <!-- <div class="pricing-card-back back-free">
+                            <a href="#">Order Now</a>
+                        </div> -->
                     </div>
-                    <div class="pricing-card-back back-free">
-                        <a href="#">Order Now</a>
+                    <div class="pricing-card swiper-slide">
+                        <div class="pricing-card-front">
+                            <h1 class="pricing-card-heading heading-basic">BASIC</h1>
+                            <h3 class="pricing-card-price">$299</h3>
+                            <ul class="pricing-card-list list-basic">
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-times"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                            </ul>
+                            <button class="pricing-card-btn btn-basic">Choose Plan</button>
+                        </div>
+                        <!-- <div class="pricing-card-back back-basic">
+                            <a href="#">Order Now</a>
+                        </div> -->
                     </div>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-front">
-                        <h1 class="pricing-card-heading heading-basic">BASIC</h1>
-                        <h3 class="pricing-card-price">$299</h3>
-                        <ul class="pricing-card-list list-check">
-                            <li>
-                                <i class="fas fa-check">
+                    <div class="pricing-card swiper-slide">
+                        <div class="pricing-card-front">
+                            <h1 class="pricing-card-heading heading-standard">STANDARD</h1>
+                            <h3 class="pricing-card-price">$699</h3>
+                            <ul class="pricing-card-list list-standard">
+                                <li>
+                                    <i class="fas fa-check"></i>
                                     <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-times">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                        </ul>
-                        <button class="pricing-card-btn btn-basic">Choose Plan</button>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                            </ul>
+                            <button class="pricing-card-btn btn-standard">Choose Plan</button>
+                        </div>
+                        <!-- <div class="pricing-card-back back-standard">
+                            <a href="#">Order Now</a>
+                        </div> -->
                     </div>
-                    <div class="pricing-card-back back-basic">
-                        <a href="#">Order Now</a>
+                    <div class="pricing-card swiper-slide">
+                        <div class="pricing-card-front">
+                            <h1 class="pricing-card-heading heading-premium">PREMIUM</h1>
+                            <h3 class="pricing-card-price">$999</h3>
+                            <ul class="pricing-card-list list-premium">
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                        <span>Pricing Card Item</span>
+                                </li>
+                            </ul>
+                            <button class="pricing-card-btn btn-premium">Choose Plan</button>
+                        </div>
+                        <!-- <div class="pricing-card-back back-premium">
+                            <a href="#">Order Now</a>
+                        </div> -->
                     </div>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-front">
-                        <h1 class="pricing-card-heading heading-standard">STANDARD</h1>
-                        <h3 class="pricing-card-price">$699</h3>
-                        <ul class="pricing-card-list list-standard">
-                            <li>
-                                <i class="fas fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                        </ul>
-                        <button class="pricing-card-btn btn-standard">Choose Plan</button>
-                    </div>
-                    <div class="pricing-card-back back-standard">
-                        <a href="#">Order Now</a>
-                    </div>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-front">
-                        <h1 class="pricing-card-heading heading-premium">PREMIUM</h1>
-                        <h3 class="pricing-card-price">$999</h3>
-                        <ul class="pricing-card-list list-premium">
-                            <li>
-                                <i class="fas fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                            <li>
-                                <i class="fas fa-fa-check">
-                                    <span>Pricing Card Item</span>
-                                </i>
-                            </li>
-                        </ul>
-                        <button class="pricing-card-btn btn-premium">Choose Plan</button>
-                    </div>
-                    <div class="pricing-card-back back-premium">
-                        <a href="#">Order Now</a>
-                    </div>
-                </div>
             </div>
+        </div>
         </section>
-        <!-- End of Section 3 -->
+    <!-- End of Section 3 -->
+    <!-- Section 4 -->
+    <section class="section-4" id="contact">
+        <h1 class="section-heading">Contact</h1>
+        <div class="section-heading-line"></div>
+        <div class="contact-wrapper">
+            <div class="contact-details">
+                <div class="phone">
+                    <i class="fas fa-mobile-alt"></i> 
+                    <h3>Phone</h3> 
+                    <p>+123 456 789</p> 
+                    <p>+987 654 321</p>
+                </div> 
+            
+            <div class="address">
+               <i class="fas fa-map-marker-alt"></i> 
+               <h3>Address</h3>
+               <p>Main Street #123</p>
+               <p>Wall Street #123</p>
+            </div>
+            <div class="email">
+                <i class="far fa-envelope"></i>
+                <h3>Email</h3>
+                <p>support@gmail.com</p>
+                <p>sales@gmail.com</p>
+            </div>
+        </div>
+        <h1>Get in Touch</h1>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name">
+                <input type="text" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+    </section>
+        <!-- End of Section 4 -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#about-us">About Us</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">
+                Copyright &copy: CodeAndCreate All Rights Reserved
+            </p>
+        </footer>
+        <!-- End of Footer -->
     </div>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script type = "module" src="script.js"></script>
 </body>
 </html>
