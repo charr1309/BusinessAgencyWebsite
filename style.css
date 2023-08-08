@@ -709,12 +709,12 @@ Followed by the before studio element.And then set left property to 100 percent.
     font-size: 57%;
   }
     .video-wrapper, .video{
-      width: 85rem;
+      /* width: 85rem; */
       height: 40rem;
       right: 5rem;
     }
     .section-2-paragraph{
-      width: 85rem;
+      /* width: 85rem; */
       right: 5rem;
       bottom: 10rem;  
     }
@@ -741,7 +741,7 @@ Followed by the before studio element.And then set left property to 100 percent.
       flex-direction: column;
     }
     .section-2{
-      height: 120vh;
+      height: 160vh;
     }
      .video-wrapper{
       top: 20%;
@@ -750,13 +750,14 @@ Followed by the before studio element.And then set left property to 100 percent.
       width: 80rem;
      } 
      .section-2-paragraph{
+      margin-bottom: -9rem;
       left: 50%;
       transform: translateX(-50%);
       width: 80rem;
      }
      .section-3{
       height: auto;
-      padding: 5rem 0 10 0;
+      padding: 5rem 0 10rem 0;
      }
      .section-3 .section-heading{
       margin-bottom: 7rem;
@@ -779,6 +780,7 @@ Followed by the before studio element.And then set left property to 100 percent.
       .banner-heading span{
         font-size: 8rem;
       }
+      
       .footer{
         padding: 0 5rem;
       }
@@ -793,6 +795,7 @@ Followed by the before studio element.And then set left property to 100 percent.
       .section-2{
         height: 100vh;
       }
+      
       .contact-details div{
         margin: 3rem 2rem;
       }
