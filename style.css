@@ -861,6 +861,20 @@ Followed by the before studio element.And then set left property to 100 percent.
         width: 60rem;
       }
     }
+    @media all and (max-width: 500px) and (orientation: portrait){
+      .section-1{
+        height: 450px;
+      }
+      .section-2{
+        height: 450px;
+      }
+      .section-2-paragraph{
+        margin-bottom: -10rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80rem;
+       }
+    }
   
 
 /* End of Responsive */
